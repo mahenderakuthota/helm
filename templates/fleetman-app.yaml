@@ -100,7 +100,7 @@ spec:
   spec:
     containers:
     - name: api-gateway
-      image: richardchesterwood/k8s-fleetman-api-gateway:resouces
+      image: richardchesterwood/k8s-fleetman-api-gateway:resources
       resources:
         requests:
           cpu: 100m
