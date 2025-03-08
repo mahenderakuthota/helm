@@ -35,7 +35,7 @@ spec:
     containers:
     - name: position-simulator
       image: richardchesterwood/k8s-fleetman-position-simulator:release2
-      resoucers:
+      resources:
         requests:
           cpu: 100m
           memory: 100Mi
@@ -68,7 +68,7 @@ spec:
     containers:
     - name: position-tracker
       image: richardchesterwood/k8s-fleetman-position-tracker:release3
-      resoucers:
+      resources:
         requests:
           cpu: 100m
           memory: 100Mi
@@ -95,7 +95,7 @@ spec:
     containers:
     - name: api-gateway
       image: richardchesterwood/k8s-fleetman-api-gateway:release2
-      resoucers:
+      resources:
         requests:
           cpu: 100m
           memory: 100Mi
@@ -126,7 +126,7 @@ spec:
     containers:
     - name: webapp
       image: richardchesterwood/k8s-fleetman-webapp-angular:release2
-      resoucers:
+      resources:
         requests:
           cpu: 100m
           memory: 100Mi
