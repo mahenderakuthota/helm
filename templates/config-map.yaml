@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+ name: global-configmap
+data:
+  database.url: jdbc://mysqlerver:3306/test_db
+  database.pass: P@ssword.1
