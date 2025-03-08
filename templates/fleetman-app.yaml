@@ -99,6 +99,9 @@ spec:
         requests:
           cpu: 100m
           memory: 100Mi
+        limits:
+          cpu: 120m
+          memory: 200Mi
       env:
        - name: SPRING_PROFILES_ACTIVE
          value: production-microservice
