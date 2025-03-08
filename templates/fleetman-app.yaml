@@ -73,10 +73,10 @@ spec:
       image: richardchesterwood/k8s-fleetman-position-tracker:resources
       resources:
         requests:
-          cpu: 100m
+          cpu: 150m
           memory: 200Mi
         limits:
-          cpu: 100m
+          cpu: 150m
           memory: 200Mi
       env:
        - name: SPRING_PROFILES_ACTIVE
