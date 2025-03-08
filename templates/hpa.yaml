@@ -10,3 +10,45 @@ spec:
    minReplicas: 1
    maxReplicas: 5
    targetCPUUtilizationPercentage: 70
+
+---
+
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: fleetman-ps-hpa
+spec:
+   scaleTargetRef:
+     apiVersion: apps/v1
+     kind: Deployment
+     name: position-simulator
+   minReplicas: 1
+   maxReplicas: 3
+   targetCPUUtilizationPercentage: 70
+
+---
+
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: api-gateway-vpa
+  namespace: default  # Change if needed
+spec:
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment  # Change to StatefulSet or another controller if needed
+    name: api-gateway
+  updatePolicy:
+    updateMode: "Auto"  # Use "Off" or "Initial" if you don't want automatic updates
+  resourcePolicy:
+    containerPolicies:
+      - containerName: api-gateway
+        minAllowed:
+          cpu: 50m   # Minimum CPU allocation
+          memory: 100Mi  # Minimum memory allocation
+        maxAllowed:
+          cpu: 200m  # Maximum CPU allocation
+          memory: 300Mi  # Maximum memory allocation
+        controlledResources: ["cpu", "memory"]
+
+  
